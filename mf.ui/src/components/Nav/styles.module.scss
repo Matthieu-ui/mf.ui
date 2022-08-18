@@ -5,13 +5,27 @@
 	padding-right: 2rem;
 	padding-bottom: 1rem;
 	padding-left: 2rem;
+	background-color: #2E3B55;
 }
 
 .logolink {
-	display: block;
-	color: var(--t-fg);
-	text-decoration: none;
+
+
+	transition-duration: 400ms;
+	
+	box-shadow: 0 0 5px 7px rgba(0, 0, 0, 0.274);
+
 }
+.logolink:hover{
+	transform: scale(1.04);
+	transition: ease-in-out;
+	transition-duration: 150ms;
+	
+	box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.274);
+
+}
+
+
 
 .link {
 	color: var(--t-subdue);
@@ -35,12 +49,13 @@
 	justify-content: center;
 	width: 2em;
 	height: 2em;
-	margin-right: 0.5rem;
 	color: var(--c-black);
 	font-weight: 900;
-	letter-spacing: -0.125rem;
-	border: 3px solid currentColor;
-	border-radius: 50%;
+	letter-spacing: -0.115rem;
+	border: 2px solid rgba(184, 184, 184, 0.22);
+border-radius: 4px;
+
+
 }
 
 .social {

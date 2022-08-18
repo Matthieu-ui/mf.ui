@@ -1,11 +1,12 @@
 import { h } from 'preact';
 import Styles from './styles.module.scss';
+import NavImg from '../../../public/assets/pxArt(3).png'
 
 function Nav() {
 	return (
 		<nav className={Styles.nav}>
 			<a className={Styles.logolink} href="/">
-				<div className={Styles.monogram}>JW</div>
+				<div className={Styles.monogram}><img class={Styles.logolink}src={NavImg}/></div>
 			</a>
 			<a className={Styles.link} href="/projects">
 				Portfolio
