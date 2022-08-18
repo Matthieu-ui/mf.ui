@@ -1,52 +1,40 @@
 ---
 // Component Imports
-import MainHead from '../components/MainHead.astro';
-import Button from '../components/Button/index.jsx';
-import Nav from '../components/Nav/index.jsx';
-import Footer from '../components/Footer/index.jsx';
-import PortfolioPreview from '../components/PortfolioPreview/index.jsx';
-import HeaderImage from '../../assets/waveAsset.svg'
+import MainHead from "../components/MainHead.astro";
+import Button from "../components/Button/index.jsx";
+import Nav from "../components/Nav/index.jsx";
+import Footer from "../components/Footer/index.jsx";
+import PortfolioPreview from "../components/PortfolioPreview/index.jsx";
+import HeaderImage from "../../assets/waveAsset.svg";
 // Data Fetching: List all Markdown posts in the repo.
-const projects = await Astro.glob('./project/**/*.md');
+const projects = await Astro.glob("./project/**/*.md");
 const featuredProject = projects[0];
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
-
 <html lang="en">
 	<head>
-
 		<script is:inline>
-			const theme = (() => {
-			  if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-				return localStorage.getItem("theme");
-			  }
-			  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-				return "dark";
-			  }
-			  return "light";
-			})();
-			if (theme === "light") {
-			  document.documentElement.classList.remove("dark");
-			} else {
-			  document.documentElement.classList.add("dark");
-			}
-			window.localStorage.setItem("theme", theme);
-		  </script>
-		  
+			this.state = {
+				dark: false,
+			};
+
+			this.changeTheme = this.changeTheme.bind(this);
+		</script>
+
 		<MainHead
 			title="Matthieu Felker"
 			alt="sd"
 			description="Jeanine White: Developer, Speaker, and Writer..."
 		/>
-		
+
 		<style lang="scss">
 			$w-s: 750px;
 
 			.hero {
-background-color: rgb(0, 0, 0);
+				background-color: rgb(0, 0, 0);
 				position: relative;
 				overflow: hidden;
 				filter: hue-rotate(30deg);
@@ -58,11 +46,8 @@ background-color: rgb(0, 0, 0);
 			.img {
 				display: block;
 				height: auto;
-				width: 100%; 
-	
-				
+				width: 100%;
 			}
-
 
 			.overlay {
 				position: absolute;
@@ -195,16 +180,9 @@ background-color: rgb(0, 0, 0);
 	</head>
 	<body>
 		<header class="hero">
-			<img
-				class="img"
-				src={HeaderImage}
-
-			>
-			
+			<img class="img" src={HeaderImage} />
 		</header>
 
-
-		
 		<Nav />
 
 		<main class="wrapper mt4 mb4">
@@ -220,10 +198,15 @@ background-color: rgb(0, 0, 0);
 				</div>
 				<div class="section">
 					<h3 class="sectionTitle">About me</h3>
-					<p class="bio">
-						<p>Hi there! I'm <strong>Matthieu</strong>.<br /><br />
-							I’m a full stack developer based out of Seattle, Washington. I work mostly with JavaScript and JS frameworks. <br>&#8212;React, SvelteJS and AstroJS on the front-end; NodeJS, ExpressJS, relational (PostgreSQL) and non-relational (MongoDB) databases on the back-end.  </p>
+					<p class="bio"></p><p>
+						Hi there! I'm <strong>Matthieu</strong>.<br /><br />
+						I’m a full stack developer based out of Seattle, Washington.
+						I work mostly with JavaScript and JS frameworks. <br
+						/>&#8212;React, SvelteJS and AstroJS on the front-end;
+						NodeJS, ExpressJS, relational (PostgreSQL) and
+						non-relational (MongoDB) databases on the back-end.
 					</p>
+
 					<p>
 						<a href="/about">Read more</a>
 					</p>
@@ -233,5 +216,3 @@ background-color: rgb(0, 0, 0);
 		<Footer />
 	</body>
 </html>
-
-
