@@ -14,13 +14,34 @@ const featuredProject = projects[0];
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
+
 <html lang="en">
 	<head>
+
+		<script is:inline>
+			const theme = (() => {
+			  if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+				return localStorage.getItem("theme");
+			  }
+			  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+				return "dark";
+			  }
+			  return "light";
+			})();
+			if (theme === "light") {
+			  document.documentElement.classList.remove("dark");
+			} else {
+			  document.documentElement.classList.add("dark");
+			}
+			window.localStorage.setItem("theme", theme);
+		  </script>
+		  
 		<MainHead
 			title="Matthieu Felker"
 			alt="sd"
 			description="Jeanine White: Developer, Speaker, and Writer..."
 		/>
+		
 		<style lang="scss">
 			$w-s: 750px;
 
@@ -189,7 +210,7 @@ background-color: rgb(0, 0, 0);
 		<main class="wrapper mt4 mb4">
 			<div class="grid">
 				<div class="section">
-					<h3 class="sectionTitle">Selected Work</h3>
+					<h3 class="sectionTitle">Featured Project</h3>
 					<PortfolioPreview project={featuredProject} />
 					<div class="tac mt4">
 						<a href="/projects">
@@ -200,9 +221,8 @@ background-color: rgb(0, 0, 0);
 				<div class="section">
 					<h3 class="sectionTitle">About me</h3>
 					<p class="bio">
-						<span>Hello!</span> I’m Jeanine, and this is my website. It was made using{' '}
-						<a href="https://github.com/withastro/astro" target="_blank" rel="nofollow"> Astro</a>,
-						a new way to build static sites. This is just an example template for you to modify.
+						<p>Hi there! I'm <strong>Matthieu</strong>.<br /><br />
+							I’m a full stack developer based out of Seattle, Washington. I work mostly with JavaScript and JS frameworks. <br>&#8212;React, SvelteJS and AstroJS on the front-end; NodeJS, ExpressJS, relational (PostgreSQL) and non-relational (MongoDB) databases on the back-end.  </p>
 					</p>
 					<p>
 						<a href="/about">Read more</a>
@@ -213,3 +233,5 @@ background-color: rgb(0, 0, 0);
 		<Footer />
 	</body>
 </html>
+
+
