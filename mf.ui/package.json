@@ -17,6 +17,7 @@
     "svelte": "^3.49.0"
   },
   "dependencies": {
+    "@material/theme": "^14.0.0",
     "preact": "^10.7.3"
   }
 }

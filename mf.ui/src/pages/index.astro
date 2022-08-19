@@ -6,6 +6,7 @@ import Nav from "../components/Nav/index.jsx";
 import Footer from "../components/Footer/index.jsx";
 import PortfolioPreview from "../components/PortfolioPreview/index.jsx";
 import HeaderImage from "../../assets/waveAsset.svg";
+
 // Data Fetching: List all Markdown posts in the repo.
 const projects = await Astro.glob("./project/**/*.md");
 const featuredProject = projects[0];

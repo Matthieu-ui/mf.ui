@@ -1,4 +1,14 @@
 // Tokens
+@use "@material/theme" with (
+  $primary: #fcb8ab,
+  $secondary: #feeae6,
+  $on-primary: #442b2d,
+  $on-secondary: #442b2d,
+);
+@use "@material/button/mdc-button";
+
+
+
 :root {
 	// (c)olor
 	--c-black: #05091e;
@@ -163,3 +173,5 @@ $colors: 'black', 'blue', 'white';
 .wrapper__readable {
 	max-width: 50em;
 }
+
+

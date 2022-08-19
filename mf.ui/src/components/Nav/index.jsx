@@ -1,6 +1,6 @@
 
 import Styles from './styles.module.scss';
-import NavImg from '../../../public/assets/pxArt(3).png'
+import NavImg from '../../assets/pxArt(3).png'
 import Toggle from '../DarkMode/Toggle'
 
 
