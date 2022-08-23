@@ -1,7 +1,7 @@
 ---
 import MainHead from '../components/MainHead.astro';
 import Footer from '../components/Footer/index.jsx';
-import Nav from '../components/Nav/index.jsx';
+import Header from '../components/Header/header.astro';
 import PortfolioPreview from '../components/PortfolioPreview/index.jsx';
 
 const projects = (await Astro.glob('./project/**/*.md'))
@@ -15,8 +15,8 @@ const projects = (await Astro.glob('./project/**/*.md'))
 <html lang="en">
 	<head>
 		<MainHead
-			title="All Projects | Jeanine White"
-			description="Learn about Jeanine White's most recent projects"
+			title="All Projects | Matthieu Felker"
+			description="Learn about Matthieu Felker's most recent projects"
 		/>
 		<style lang="scss">
 			.grid {
@@ -26,7 +26,7 @@ const projects = (await Astro.glob('./project/**/*.md'))
 		</style>
 	</head>
 	<body>
-		<Nav />
+		<Header/>
 		<div class="wrapper">
 			<h1 class="title mt4 mb4">All Projects</h1>
 			<div class="grid">

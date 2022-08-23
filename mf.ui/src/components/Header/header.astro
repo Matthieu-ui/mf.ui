@@ -1,0 +1,66 @@
+---
+
+import Nav from "../../components/Nav/index.jsx";
+import HeaderImage from "../../assets/waveAsset.svg";
+---
+
+
+
+
+
+		<style lang="scss">
+			$w-s: 750px;
+
+			.hero {
+				background-color: rgb(0, 0, 0);
+				position: relative;
+				overflow: hidden;
+				filter: hue-rotate(30deg);
+				@media (min-width: 10px) {
+					height: 12vw;
+				}
+			}
+
+			.img {
+				display: block;
+				height: auto;
+				width: 100%;
+			}
+
+			.overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 10;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
+				padding-left: 2rem;
+
+				@media (min-width: $w-s) {
+					padding-left: 4rem;
+				}
+			}
+
+			.title {
+				font-weight: 900;
+				font-size: var(--f-u8);
+				margin-bottom: 0.5rem;
+				margin-top: 0;
+
+				@media (min-width: $w-s) {
+					font-size: var(--f-u12);
+				}
+			}
+
+		</style>
+
+		<header class="hero">
+			<img class="img" src={HeaderImage} />
+		</header>
+
+		<Nav />
+

@@ -2,8 +2,7 @@
 import MainHead from '../components/MainHead.astro';
 import Button from '../components/Button/index.jsx';
 import Footer from '../components/Footer/index.jsx';
-import Nav from '../components/Nav/index.jsx';
-import HeaderImage from '../../../public/assets/waveAsset.svg'
+import Header from '../components/Header/header.astro';
 
 
 const { content } = Astro.props;
@@ -70,10 +69,8 @@ const { content } = Astro.props;
 		</style>
 	</head>
 	<body>
-		<Nav />
-		<header style={`background-image:url(${HeaderImage})`} class="hero">
-			<h1 class="title">{content.title}</h1>
-		</header>
+		<Header/>
+
 		<div class="leadIn">
 			<div class="wrapper pt8 pb8 mb8 tac">
 				{content.tags.map((t) => <span class="tag">{t}</span>)}
@@ -85,9 +82,12 @@ const { content } = Astro.props;
 		</div>
 		<footer class="tac mt6">
 			<a href="/projects">
+				
 				<Button>View More</Button>
 			</a>
 		</footer>
+
 		<Footer />
+
 	</body>
 </html>

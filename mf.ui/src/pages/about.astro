@@ -1,8 +1,9 @@
 ---
 import MainHead from '../components/MainHead.astro';
 import Footer from '../components/Footer/index.jsx';
-import Nav from '../components/Nav/index.jsx';
-import HeaderImage from '../../../public/assets/waveAsset.svg'
+import Header from '../components/Header/header.astro';
+
+import mattsImage from '../../../public/assets/microsoft.png'
 
 ---
 
@@ -11,10 +12,9 @@ import HeaderImage from '../../../public/assets/waveAsset.svg'
 		<MainHead title="About | Jeanine White" description="About Jeanine White Lorem Ipsum" />
 		<style lang="scss">
 			.heroImg {
-				max-height: 24rem;
-				object-fit: cover;
-				overflow: hidden;
-
+		
+		
+		
 				img {
 					width: 100%;
 				}
@@ -27,14 +27,15 @@ import HeaderImage from '../../../public/assets/waveAsset.svg'
 		</style>
 	</head>
 	<body>
-		<Nav />
+		<Header/>
+
 		<div class="wrapper">
 			<h1>About Matthieu</h1>
 			<div class="heroImg">
 				<img
 					width="1400"
 					height="350"
-					src={HeaderImage}
+					src={mattsImage}
 				/>
 			</div>
 			<div class="bio wrapper wrapper__readable mt8">

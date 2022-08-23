@@ -1,0 +1,146 @@
+---
+
+import Button from "../../components/Button/index.jsx";
+import PortfolioPreview from "../../components/PortfolioPreview/index.jsx";
+
+
+
+// Data Fetching: List all Markdown posts in the repo.
+const projects = await Astro.glob("../../pages/project/**/*.md");
+const featuredProject = projects[0];
+
+---
+
+
+<style lang="scss">
+    $w-s: 750px;
+
+    .grid {
+        display: grid;
+        grid-gap: 2rem;
+
+        @media (min-width: 1200px) {
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+
+    .sectionTitle {
+        font-weight: 700;
+        font-size: var(--f-u8);
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .role {
+        position: relative;
+        display: inline-block;
+        font-weight: 900;
+        color: var(--t-bg);
+        background-color: var(--t-fg);
+        padding: 0.25em 0.5em;
+        z-index: 2;
+
+        @media (min-width: $w-s) {
+            font-size: var(--f-u3);
+        }
+
+        + .role {
+            margin-left: 1em;
+        }
+
+        &:nth-of-type(1) {
+            .invert {
+                background-color: var(--c-pink);
+            }
+        }
+
+        &:nth-of-type(2) {
+            .invert {
+                background-color: var(--c-blue);
+            }
+        }
+
+        &:nth-of-type(3) {
+            .invert {
+                background-color: var(--c-green);
+            }
+        }
+
+        &:hover {
+            .invert {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            }
+        }
+    }
+
+    .invert {
+        position: absolute;
+        color: var(--t-fg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        clip-path: polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%);
+        transition: clip-path cubic-bezier(0.4, 0, 0.5, 1) 150ms;
+    }
+
+    .desc {
+        font-size: var(--f-u2);
+        margin-top: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .subtitle {
+        display: block;
+        font-weight: 400;
+        font-size: var(--f-d6);
+        letter-spacing: -0.0625em;
+    }
+
+    .bio {
+        line-height: 2;
+        margin-bottom: 2rem;
+
+        > span:first-of-type {
+            line-height: 1;
+            margin-bottom: 0.5em;
+            display: block;
+            font-weight: 700;
+            font-size: var(--f-u4);
+        }
+    }
+</style>
+
+
+<main class="wrapper mt4 mb4">
+    <div class="grid">
+        <div class="section">
+            <h3 class="sectionTitle">Featured Project</h3>
+            <PortfolioPreview project={featuredProject} />
+            <div class="tac mt4">
+                <a href="/projects">
+                    <Button>View All</Button>
+                </a>
+            </div>
+        </div>
+        <div class="section">
+            <h3 class="sectionTitle">About me</h3>
+            <p class="bio"></p><p>
+                Hi there! I'm <strong>Matthieu</strong>.<br /><br />
+                I’m a full stack developer based out of Seattle, Washington.
+                I work mostly with JavaScript and JS frameworks. <br
+                />&#8212;React, SvelteJS and AstroJS on the front-end;
+                NodeJS, ExpressJS, relational (PostgreSQL) and
+                non-relational (MongoDB) databases on the back-end.
+            </p>
+
+            <p>
+                <a href="/about">Read more</a>
+            </p>
+        </div>
+    </div>
+</main>
